@@ -3,66 +3,84 @@ import { View, Image, ScrollView, Text, StyleSheet } from 'react-native';
 
 const HomeScreen = () => {
     return (
-        <ScrollView>
+        <ScrollView contentContainerStyle={{ flex: 1 }}>
             <View style={styles.container}>
-                <View style={styles.backgroundContainer}>
-                    <Image
-                        source={require('../Assets/Rectangle_194.png')}
-                    />
-                    <View style={styles.logoContainer}>
+
+                
+                <View style={styles.imageContainer}>
+                    <View>
                         <Image
-                            style={{ marginTop: -130 }}
-                            source={require('../Assets/tiny-zoo-2.png')}
+                            source={require('../Assets/107ed00af16a4328a7e19acdb31e3012.png')}
                         />
+                        <View style={styles.likeContent}>
+                            <Image
+                                style={styles.heart}
+                                source={require('../Assets/heart.png')}
+                            />
+                        </View>
+                    </View>
+                    <View>
                         <Image
-                            style={{ marginTop: -90, marginRight: -280 }}
-                            source={require('../Assets/settings-white-24dp.png')}
+                            source={require('../Assets/7008f379e297ebdc31af7caaa2f6fb78.png')}
                         />
+                        <View style={styles.likeContent}>
+                            <Image
+                                style={styles.heart}
+                                source={require('../Assets/heart.png')}
+                            />
+                        </View>
+
+                    </View>
+                    <View>
                         <Image
-                            style={{ marginTop: 65, marginRight: -220 }}
-                            source={require('../Assets/search-white-1.png')}
+                            source={require('../Assets/50612833fe476e17428fffcb98077423.png')}
                         />
-                        <View style={styles.searchLine} />
+                        <View style={styles.likeContent}>
+                            <Image
+                                style={styles.heart}
+                                source={require('../Assets/heart.png')}
+                            />
+                        </View>
                     </View>
                 </View>
-                <View style={styles.iconContainer}>
-                    <Image
-                        style={styles.iconLeft}
-                        source={require('../Assets/Group-316.png')}
-                    />
-                    <Image
-                        style={styles.icon}
-                        source={require('../Assets/Group-17.png')}
-                    />
-                    <Image
-                        style={styles.icon}
-                        source={require('../Assets/Group-318.png')}
-                    />
-                    <Image
-                        style={styles.iconRight}
-                        source={require('../Assets/Group-319.png')}
-                    />
-                </View>
-                <Image
-                    style={{ height: 150, width: null, marginRight: 30 }}
-                    source={require('../Assets/Group-310.png')}
-                />
-                <View style={styles.photoCotainer}>
-                    <View style={styles.photo}>
+
+
+                <View style={styles.imageContainer}>
+                    <View>
                         <Image
-                            resizeMode='contain'
-                            style={styles.photoImage}
-                            source={require('../Assets/mouse.png')}
+                            source={require('../Assets/05606bcffd0b855c97699fdc4ca7978a.png')}
                         />
+                        <View style={styles.likeContent}>
+                            <Image
+                                style={styles.heart}
+                                source={require('../Assets/heart.png')}
+                            />
+                        </View>
                     </View>
-                    <View style={styles.photo}>
+                    <View>
                         <Image
-                            // resizeMode='contain'
-                            style={styles.photoImage}
-                            source={require('../Assets/owl.png')}
+                            source={require('../Assets/shibata.png')}
                         />
+                        <View style={styles.likeContent}>
+                            <Image
+                                style={styles.heart}
+                                source={require('../Assets/heart.png')}
+                            />
+                        </View>
+                    </View>
+                    <View>
+                        <Image
+                            source={require('../Assets/21163_0_620.png')}
+                        />
+                        <View style={styles.likeContent}>
+                            <Image
+                                style={styles.heart}
+                                source={require('../Assets/heart.png')}
+                            />
+                        </View>
                     </View>
                 </View>
+
             </View>
         </ScrollView>
     );
@@ -71,64 +89,28 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        height: 750,
-        backgroundColor: "#FCFFD8",
-    },
-    backgroundContainer: {
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    backdrop: {
-        flex: 1,
-    },
-    logoContainer: {
-        alignItems: "center",
-    },
-    searchLine: {
-        width: 200,
-        marginTop: -8,
-        marginRight: 20,
-        borderBottomColor: '#fff',
-        borderBottomWidth: 4,
-    },
-    iconContainer: {
-        paddingTop: 30,
+        // height: 750,
+        backgroundColor: "#E3E3E3",
         flexDirection: 'row',
+    },
+    imageContainer: {
+        marginLeft: 5,
+        marginRight: 5,
         justifyContent: 'space-between',
+        // backgroundColor: '#000',
     },
-    iconLeft: {
+    likeContent: {
         height: 60,
-        width: 60,
-        marginLeft: 40,
+        width: 196,
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15,
+        backgroundColor: '#7B7B7B',
+        flexDirection: 'row-reverse',
+        alignItems: 'center',
+        marginBottom: 10,
     },
-    icon: {
-        height: 60,
-        width: 60,
-    },
-    iconRight: {
-        height: 60,
-        width: 60,
-        marginRight: 40,
-    },
-    photoCotainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginLeft: 30,
-        marginRight: 30,
-        paddingTop: 30,
-    },
-    photo: {
-        height: 170,
-        width: 170,
-        backgroundColor: '#F3A6A6',
-        borderRadius: 20,
-        justifyContent: 'center',
-        alignItems: "center",
-    },
-    photoImage: {
-        height: 160 ,
-        width: 160 ,
-        borderRadius: 15
+    heart: {
+        marginRight: 10,
     }
 })
 export default HomeScreen;
