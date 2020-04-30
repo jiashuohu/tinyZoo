@@ -1,17 +1,21 @@
 import React from 'react';
-import { View, Image, ScrollView, Text, StyleSheet } from 'react-native';
+import { View, Image, ScrollView, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const HomeScreen = () => {
+const HomeScreen = ({ back,navigation }) => {
     return (
-        <ScrollView contentContainerStyle={{ flex: 1 }}>
+        <ScrollView>
             <View style={styles.container}>
 
-                
+
                 <View style={styles.imageContainer}>
                     <View>
-                        <Image
-                            source={require('../Assets/107ed00af16a4328a7e19acdb31e3012.png')}
-                        />
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('Profile')}
+                        >
+                            <Image
+                                source={require('../Assets/107ed00af16a4328a7e19acdb31e3012.png')}
+                            />
+                        </TouchableOpacity>
                         <View style={styles.likeContent}>
                             <Image
                                 style={styles.heart}
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
     imageContainer: {
         marginLeft: 5,
         marginRight: 5,
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
         // backgroundColor: '#000',
     },
     likeContent: {

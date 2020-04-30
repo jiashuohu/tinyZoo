@@ -5,7 +5,7 @@ const RankingScreen = () => {
     return (
         <ScrollView>
             <View style={styles.container}>
-                
+
                 <View style={styles.header}>
                     <View>
                     <Text style={styles.headerTitleStyle}>TOP 3</Text>
@@ -110,9 +110,12 @@ const styles = StyleSheet.create({
     },
     headerTitleStyle: {
         marginBottom: 20,
-        fontSize: 20,
+        fontSize: 30,
         color: '#fff',
         fontWeight: 'bold',
+        transform: [
+            { scaleX: 0.5 }
+        ],
     },
     ChampionContainer: {
         flexDirection: 'row',

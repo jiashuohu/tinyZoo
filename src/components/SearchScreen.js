@@ -33,17 +33,7 @@ const SearchScreen = () => {
                                 <Text style={styles.tagStyle}>Cat</Text>
                             </View>
                         </View>
-                        <View>
-                            <Image
-                                source={require('../Assets/50612833fe476e17428fffcb98077423.png')}
-                            />
-                            <View style={styles.likeContent}>
-                                <Image
-                                    style={styles.heart}
-                                    source={require('../Assets/heart.png')}
-                                />
-                            </View>
-                        </View>
+                       
                     </View>
 
                     <View style={styles.imageContainer}>
@@ -63,17 +53,7 @@ const SearchScreen = () => {
                                 <Text style={styles.tagStyle}>Shibata Inu</Text>
                             </View>
                         </View>
-                        <View>
-                            <Image
-                                source={require('../Assets/21163_0_620.png')}
-                            />
-                            <View style={styles.likeContent}>
-                                <Image
-                                    style={styles.heart}
-                                    source={require('../Assets/heart.png')}
-                                />
-                            </View>
-                        </View>
+                        
                     </View>
                 </View>
             </View>
@@ -84,6 +64,7 @@ const SearchScreen = () => {
 const styles = StyleSheet.create({
     textContainer: {
         backgroundColor: '#E3E3E3',
+        paddingLeft: 15,
     },
     titleStyle: {
         fontSize: 20,
