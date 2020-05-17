@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image ,Platform, AsyncStorage } from 'react-native';
 
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -11,6 +11,8 @@ import HomeScreen from "./src/components/HomeScreen"
 import SearchScreen from "./src/components/SearchScreen"
 import RankingScreen from "./src/components/RankingScreen"
 import ProfileScreen from "./src/components/ProfileScreen"
+
+const PERSISTENCE_KEY = "ALBUMS_NAVIGATION_STATE";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -82,8 +84,33 @@ const SearchStack = ({ navigation }) => {
 }
 
 const App = () => {
+  const [isLoadingComplete, setLoadingComplete] = React.useState(false);
+  const [initialNavigationState, setInitialNavigationState] = React.useState();
+
+  React.useEffect(() => {
+    async function loadResourcesAndDataAsync() {
+      try {
+        const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
+        const state = JSON.parse(savedStateString);
+        setInitialNavigationState(state);
+      } catch (e) {
+        // We might want to provide this error information to an error reporting service
+        console.warn(e);
+      } finally {
+        setLoadingComplete(true);
+      }
+    }
+    loadResourcesAndDataAsync();
+  }, []);
+  if (!isLoadingComplete) {
+    return null;
+  } else {
   return (
-    <NavigationContainer>
+    <NavigationContainer
+    initialState={initialNavigationState}
+    onStateChange={(state) =>
+      AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
+    }>
       
       <Tab.Navigator
         screenOptions={({ route }) => ({
@@ -121,7 +148,7 @@ const App = () => {
         <Tab.Screen name="Rank" component={RankingScreen} />
       </Tab.Navigator>
     </NavigationContainer>
-  );
+  );}
 }
 
 const styles = StyleSheet.create({
